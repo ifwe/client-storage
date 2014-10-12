@@ -2,7 +2,7 @@
   "name": "tagged-client-storage",
   "private": true,
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt travis"
   },
   "devDependencies": {
     "grunt": "*",
