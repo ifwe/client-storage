@@ -206,8 +206,8 @@ define(function(require) {
 
                 beforeEach(inject(function(taggedClientStorage) {
                     this.clientStorage = taggedClientStorage;
-                    this.now = new Date(2014, 9, 16); // October 16th, 2014
-                    this.clock = sinon.useFakeTimers(this.now.getTime());
+                    this.now = 1413442800000; // October 16th, 2014
+                    this.clock = sinon.useFakeTimers(this.now);
                 }));
 
                 afterEach(function() {
