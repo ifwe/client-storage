@@ -1,0 +1,32 @@
+{
+  "name": "tagged-autogrow",
+  "private": true,
+  "scripts": {
+    "test": "grunt travis"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-karma": "*",
+    "grunt-karma-coveralls": "*",
+    "karma": "*",
+    "karma-chai": "*",
+    "karma-chrome-launcher": "*",
+    "karma-coffee-preprocessor": "*",
+    "karma-coverage": "*",
+    "karma-firefox-launcher": "*",
+    "karma-html2js-preprocessor": "*",
+    "karma-junit-reporter": "*",
+    "karma-mocha": "*",
+    "karma-phantomjs-launcher": "*",
+    "karma-requirejs": "*",
+    "karma-safari-launcher": "*",
+    "karma-script-launcher": "*",
+    "karma-sinon": "*",
+    "karma-sinon-chai": "*",
+    "karma-story-reporter": "*",
+    "mocha": "*",
+    "requirejs": "*"
+  }
+}

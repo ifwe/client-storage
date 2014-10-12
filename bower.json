@@ -1,0 +1,25 @@
+{
+  "name": "tagged-client-storage",
+  "version": "0.0.0",
+  "authors": [
+    "Hector Virgen <hvirgen@tagged.com>"
+  ],
+  "description": "Client Storage for AngularJS",
+  "main": "taggedClientStorage.js",
+  "keywords": [
+    "Angular",
+    "Directive",
+    "Autogrow"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.21",
+    "angular-mocks": "~1.2.21"
+  }
+}
