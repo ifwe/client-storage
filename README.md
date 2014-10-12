@@ -9,11 +9,13 @@ Namespaced storage for Angular JS. Writes to localStorage, with cookie fallback.
 ## Getting Started
 
 To get started, add `taggedClientStorage-min.js` to your webpage:
+
 ```html
 <script type="text/javascript" src="path/to/taggedClientStorage-min.js"></script>
 ```
 
 And add the module `tagged.services.client-storage` to your app's dependencies:
+
 ```js
 var app = angular.module('MyApp', ['tagged.services.client-storage']);
 ```
@@ -29,6 +31,7 @@ app.controller('MyController', function($scope, taggedClientStorage) {
     myStorage.set('count', 123); // store an `int`
     myStorage.get('count') === 123; // get back an `int`
 });
+```
 
 ### Requirements
 
@@ -36,12 +39,14 @@ app.controller('MyController', function($scope, taggedClientStorage) {
 * RequireJS (Optional)
 
 ### Using RequireJS
+
 This service can be loaded as an AMD module if you're using RequireJS. There are a few requirements:
 
 1. You must add paths to `angular` in your RequireJS config.
 2. You must shim `angular` to export `angular`.
 
 At minimum, your requirejs config must include this:
+
 ```js
 requirejs.config({
     paths: {
@@ -56,6 +61,7 @@ requirejs.config({
 ```
 
 Once configured, you can `require()` the original source file `src/taggedClientStorage` in your app:
+
 ```js
 define(['angular', 'path/to/src/taggedClientStorage'], function(angular) {
     var app = angular.module('MyApp', ['tagged.services.clientStorage']);
@@ -95,6 +101,7 @@ $ grunt dev
 ```
 
 **Building Production Files**
+
 ```bash
 # Build production files in `./`
 $ grunt build
