@@ -4,12 +4,11 @@
   "authors": [
     "Hector Virgen <hvirgen@tagged.com>"
   ],
-  "description": "Client Storage for AngularJS",
+  "description": "Client Storage for AngularJS. Defaults to localStorage, with cookie fallback.",
   "main": "taggedClientStorage.js",
   "keywords": [
     "Angular",
-    "Directive",
-    "Autogrow"
+    "LocalStorage"
   ],
   "license": "MIT",
   "ignore": [

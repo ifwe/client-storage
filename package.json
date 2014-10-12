@@ -1,8 +1,8 @@
 {
-  "name": "tagged-autogrow",
+  "name": "tagged-client-storage",
   "private": true,
   "scripts": {
-    "test": "grunt travis"
+    "test": "grunt test"
   },
   "devDependencies": {
     "grunt": "*",

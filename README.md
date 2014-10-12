@@ -1,76 +1,66 @@
-[![Build Status](https://travis-ci.org/tagged/autogrow.png)](https://travis-ci.org/tagged/autogrow)
-[![Dependency Status](https://gemnasium.com/tagged/autogrow.png)](https://gemnasium.com/tagged/autogrow)
-[![Coverage Status](https://coveralls.io/repos/tagged/autogrow/badge.png)](https://coveralls.io/r/tagged/autogrow)
+[![Build Status](https://travis-ci.org/tagged/client-storage.png)](https://travis-ci.org/tagged/client-storage)
+[![Dependency Status](https://gemnasium.com/tagged/client-storage.png)](https://gemnasium.com/tagged/client-storage)
+[![Coverage Status](https://coveralls.io/repos/tagged/client-storage/badge.png)](https://coveralls.io/r/tagged/client-storage)
 
-# Autogrowing Textareas for AngularJS
-The easiest way to make autogrowing textareas in AngularJS
+# Client Storage for Angular JS
 
-[View the demo!](http://htmlpreview.github.io/?https://github.com/tagged/autogrow/blob/master/demo/index.html)
-
-```js
-var app = angular.module('MyApp', ['tagged.directives.autogrow']);
-app.controller('MainController', ['$scope', function($scope) {
-  // No special controller code needed
-}]);
-```
-```html
-<div ng-app="MyApp">
-  <div ng-controller="MainController">
-    <textarea ng-model="myModel" tagged-autogrow></textarea>
-  </div>
-</div>
-```
+Namespaced storage for Angular JS. Writes to localStorage, with cookie fallback.
 
 ## Getting Started
 
-To get started, add `taggedAutogrow-min.js` to your webpage:
+To get started, add `taggedClientStorage-min.js` to your webpage:
 ```html
-<script type="text/javascript" src="path/to/taggedAutogrow-min.js"></script>
+<script type="text/javascript" src="path/to/taggedClientStorage-min.js"></script>
 ```
 
-And add the module `tagged.directives.autogrow` to your app's dependencies:
+And add the module `tagged.services.client-storage` to your app's dependencies:
 ```js
-var app = angular.module('MyApp', ['tagged.directives.autogrow']);
+var app = angular.module('MyApp', ['tagged.services.client-storage']);
 ```
 
-Then simply add the `tagged-autogrow` attribute to any `textarea` that is wired
-up with `ng-model`. Style the textarea as usual, and it will grow automatically
-as the user types.
+Then inject the `taggedClientStorage` factory into your app.
+
+```js
+app.controller('MyController', function($scope, taggedClientStorage) {
+    var myStorage = taggedClientStorage('my_namespace');
+    myStorage.set('foo', 'bar'); // stores `foo` with value `"bar"` under namespace `my_namespace`
+    myStorage.get('foo'); // returns `"bar"`
+    // Types are maintained
+    myStorage.set('count', 123); // store an `int`
+    myStorage.get('count') === 123; // get back an `int`
+});
 
 ### Requirements
 
-* AngularJS 1.1.5 - 1.2.x
-* jQuery 1.10.x
+* AngularJS 1.2.x (Tested with 1.2.21)
 * RequireJS (Optional)
 
 ### Using RequireJS
-This directive can be loaded as an AMD module if you're using RequireJS. There are a few requirements:
+This service can be loaded as an AMD module if you're using RequireJS. There are a few requirements:
 
 1. You must add paths to `angular` in your RequireJS config.
-2. You must shim `angular` to export `angular`, and it must be dependent on `jquery` (path to jquery does not matter).
+2. You must shim `angular` to export `angular`.
 
 At minimum, your requirejs config must include this:
 ```js
 requirejs.config({
-  paths: {
-    'angular': 'path/to/angular'
-  },
-  shim: {
-    'angular': {
-      'exports': 'angular',
-      'deps': ['path/to/jquery']
+    paths: {
+        'angular': 'path/to/angular'
+    },
+    shim: {
+        'angular': {
+            'exports': 'angular'
+        }
     }
-  }
 });
 ```
 
-Once configured, you can `require()` the original source file `src/taggedAutogrow` in your app:
+Once configured, you can `require()` the original source file `src/taggedClientStorage` in your app:
 ```js
-define(['angular', 'path/to/src/taggedAutogrow'], function(angular) {
-  var app = angular.module('MyApp', ['tagged.directives.autogrow']);
+define(['angular', 'path/to/src/taggedClientStorage'], function(angular) {
+    var app = angular.module('MyApp', ['tagged.services.clientStorage']);
   
-  // ...
-
+    /* ... */
 });
 ```
 
@@ -86,10 +76,10 @@ To set up the development environment, run these commands once:
 # Global dependencies
 $ npm install --global grunt-cli bower
 
-# Local node dependencies (karma, etc.)
+# Local node dependencies (Karma, etc.)
 $ npm install
 
-# 3rd-party libraries (Angular, jQuery, etc.)
+# 3rd-party libraries (Angular, etc.)
 $ bower install
 ```
 
@@ -113,7 +103,7 @@ $ grunt build
 ## Contributing
 Contributions welcome! All we ask is that pull requests include unit tests. Thanks!
 
-Copyright 2013 Tagged, Inc.
+Copyright 2014 Tagged, Inc.
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tagged/autogrow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tagged/client-storage/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
