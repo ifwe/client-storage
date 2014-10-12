@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/tagged/client-storage.png)](https://travis-ci.org/tagged/client-storage)
 [![Dependency Status](https://gemnasium.com/tagged/client-storage.png)](https://gemnasium.com/tagged/client-storage)
-[![Coverage Status](https://coveralls.io/repos/tagged/client-storage/badge.png)](https://coveralls.io/r/tagged/client-storage)
+[![Coverage Status](https://img.shields.io/coveralls/tagged/client-storage.svg)](https://coveralls.io/r/tagged/client-storage?branch=master)
 
 # Client Storage for Angular JS
 
