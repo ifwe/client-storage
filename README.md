@@ -4,7 +4,8 @@
 
 # Client Storage for Angular JS
 
-Namespaced storage for Angular JS. Writes to localStorage, with cookie fallback.
+Namespaced client storage for Angular JS. Writes to localStorage, with cookie fallback.
+No external dependencies other than Angular core; does not depend on `ngCookies`.
 
 ## Getting Started
 
