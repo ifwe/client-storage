@@ -34,7 +34,6 @@
             // Returns the value of the specified cookie,
             // otherwise `null` if not found.
             getItem: function(name) {
-                // TODO: Use $document[0];
                 if (!$document[0].cookie.length) {
                     return null;
                 }
