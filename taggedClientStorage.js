@@ -1,4 +1,4 @@
-/*! tagged-client-storage - v0.0.0 - 2014-10-11 */
+/*! tagged-client-storage - v1.0.2 - 2014-10-21 */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -25,7 +25,7 @@
     //     storage.get('other');    // returns undefined
     //     storage.getAll();        // returns object { foo: 'bar' }
     var module = angular.module('tagged.services.client-storage', []);
-    module.factory('taggedClientStorage', function($window, $document) {
+    module.factory('taggedClientStorage', ['$window', '$document', function($window, $document) {
         // Cookie fallback implements the same interface as `localStorage`,
         // allowing us to drop it in when `localStorage` is not available.
         // Cookies are hard-coded to be stored domain-wide,
@@ -35,31 +35,31 @@
             // Returns the value of the specified cookie,
             // otherwise `null` if not found.
             getItem: function(name) {
-                if (!$document.cookie.length) {
+                if (!$document[0].cookie.length) {
                     return null;
                 }
 
-                var start = $document.cookie.indexOf(name + "=");
+                var start = $document[0].cookie.indexOf(name + "=");
 
                 if (-1 == start) {
                     return null;
                 }
 
                 start = start + name.length + 1;
-                var end = $document.cookie.indexOf(";", start);
+                var end = $document[0].cookie.indexOf(";", start);
 
                 if (-1 == end) {
-                    end = $document.cookie.length;
+                    end = $document[0].cookie.length;
                 }
 
-                return unescape($document.cookie.substring(start, end));
+                return unescape($document[0].cookie.substring(start, end));
             },
 
             // Stores the cookie site-wide for one year.
             setItem: function(name, value) {
                 var date = new Date();
                 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 365)); // 1 year
-                $document.cookie = escape(name) + '=' + escape(value) + '; path=/; expires=' + date.toGMTString();
+                $document[0].cookie = escape(name) + '=' + escape(value) + '; path=/; expires=' + date.toGMTString();
             },
 
             // Removes the cookie by removing its value
@@ -67,7 +67,7 @@
             removeItem: function(name) {
                 var date = new Date();
                 date.setTime(date.getTime() + (1000 * -1000)); // something in the past
-                $document.cookie = escape(name) + '=; path=/; expires=' + date.toGMTString();
+                $document[0].cookie = escape(name) + '=; path=/; expires=' + date.toGMTString();
             }
         };
 
@@ -156,7 +156,7 @@
             storages[namespace] = new Storage(namespace);
             return storages[namespace];
         };
-    });
+    }]);
 
     return module;
 }));

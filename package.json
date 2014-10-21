@@ -27,6 +27,8 @@
     "karma-sinon-chai": "*",
     "karma-story-reporter": "*",
     "mocha": "*",
-    "requirejs": "*"
+    "requirejs": "*",
+    "grunt-ng-annotate": "^0.4.0",
+    "grunt-contrib-clean": "^0.6.0"
   }
 }
